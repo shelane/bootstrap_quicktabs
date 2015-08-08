@@ -1,0 +1,7 @@
+name = Bootstrap Quicktabs
+description = Makes tabs from Boostrap framework available to the Quicktabs modules. Compatible with Bootstrap 2 and 3 theme.
+package = Bootstrap
+dependencies[] = quicktabs
+dependencies[] = jquery_update
+core = 7.x
+version = 7.x-1.0
