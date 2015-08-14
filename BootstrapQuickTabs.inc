@@ -87,10 +87,11 @@ class BootstrapQuickTabs extends QuickRenderer {
       ),
     );
 
+	$count = 1;
     foreach ($quickset->getContents() as $key => $tab) {
       if (!empty($tab)) {
         $attribs = array(
-          'id' => 'quicktabs-' . $qt_name . ($key + 1),
+          'id' => 'quicktabs-' . $qt_name . $count,
         );
         $attribs['class'][] = 'tab-pane';
         if ($key == $active_tab) {
@@ -108,6 +109,7 @@ class BootstrapQuickTabs extends QuickRenderer {
           '#suffix' => '</div>',
           'content' => $tab->render(),
         );
+        $count++;
       }
     }
 
@@ -123,10 +125,11 @@ class BootstrapQuickTabs extends QuickRenderer {
   protected function build_tablinks($active_tab) {
     $tabs = array();
     $qt_name = $this->quickset->getName();
+    $count = 1;
     foreach ($this->quickset->getContents() as $i => $tab) {
       if (!empty($tab)) {
         $attributes = array(
-          'href' => '#quicktabs-' . $qt_name . ($i + 1),
+          'href' => '#quicktabs-' . $qt_name . $count,
           'data-toggle' => 'tab',
         );
         $markup = '<a ' . drupal_attributes($attributes) . '>' . check_plain($this->quickset->translateString($tab->getTitle(), 'tab', $i)) . '</a>';
@@ -134,6 +137,7 @@ class BootstrapQuickTabs extends QuickRenderer {
           '#markup' => $markup,
         );
         $tabs[$i] = $tablink;
+        $count++;
       }
     }
     return $tabs;
