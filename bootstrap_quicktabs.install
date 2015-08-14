@@ -36,6 +36,7 @@ function bootstrap_quicktabs_requirements($phase) {
     // than nothing:
     'bootstrap theme' => array(
       'title' => t('Bootstrap Theme'),
+      'value' => array_key_exists('bootstrap', $themes) ? t('Installed') : t('Not found'),
       'description' => t('Bootstrap Quicktabs is intended for use with the Bootstrap theme.'),
       'severity' => array_key_exists('bootstrap', $themes) ? REQUIREMENT_OK : REQUIREMENT_WARNING,
     ),
