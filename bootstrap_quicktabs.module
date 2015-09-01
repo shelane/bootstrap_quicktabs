@@ -61,7 +61,7 @@ function theme_bootstrap_tabs_tabset($variables) {//theme_bootstrap_quicktabs_ta
   }
   $classes = ($variables['tabset']['#options']['style']);
   $classes .= ($variables['tabset']['#options']['position'] == 'justified' || $variables['tabset']['#options']['position'] == 'stacked' ? ' nav-' . $variables['tabset']['#options']['position'] : '');
-  return '<ul class="nav nav-' .  $classes  . '">' . $tabs . '</ul>';
+  return '<ul class="nav nav-' . $classes . '">' . $tabs . '</ul>';
 } // theme_bootstrap_quicktabs_tabs_tabset()
 
 

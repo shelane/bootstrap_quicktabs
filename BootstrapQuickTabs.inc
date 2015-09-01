@@ -25,7 +25,7 @@ class BootstrapQuickTabs extends QuickRenderer {
       ),
       '#title' => t('Style of tabs'),
       '#type' => 'radios',
-    ); 
+    );
     $form['tabposition'] = array(
       '#default_value' => (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabposition']) && $qt->options['tabposition']) ? $qt->options['tabposition'] : 'basic',
       '#description' => t('Choose the position of tab to use from %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'http://getbootstrap.com/components/#nav'))),
@@ -87,31 +87,30 @@ class BootstrapQuickTabs extends QuickRenderer {
       ),
     );
 
-	$count = 1;
-    foreach ($quickset->getContents() as $key => $tab) {
-      if (!empty($tab)) {
-        $attribs = array(
-          'id' => 'quicktabs-' . $qt_name . $count,
-        );
-        $attribs['class'][] = 'tab-pane';
-        if ($key == $active_tab) {
-          $attribs['class'][] = 'active';
-        }
-		if (in_array('fade', $options['tabeffects'])){
-		  $attribs['class'][] = 'fade';
-		  if ($key == $active_tab) {
-            $attribs['class'][] = 'in';
-          }
-		}
-
-        $render_array['content']['panes'][] = array(
-          '#prefix' => '<div role="tabpanel" ' . drupal_attributes($attribs) . '>',
-          '#suffix' => '</div>',
-          'content' => $tab->render(),
-        );
-        $count++;
+  $count = 1;
+  foreach ($quickset->getContents() as $key => $tab) {
+    if (!empty($tab)) {
+      $attribs = array(
+        'id' => 'quicktabs-' . $qt_name . $count,
+      );
+      $attribs['class'][] = 'tab-pane';
+      if ($key == $active_tab) {
+        $attribs['class'][] = 'active';
       }
+      if (in_array('fade', $options['tabeffects'])) {
+        $attribs['class'][] = 'fade';
+        if ($key == $active_tab) {
+          $attribs['class'][] = 'in';
+        }
+      }
+      $render_array['content']['panes'][] = array(
+        '#prefix' => '<div role="tabpanel" ' . drupal_attributes($attribs) . '>',
+        '#suffix' => '</div>',
+        'content' => $tab->render(),
+      );
+      $count++;
     }
+  }
 
     return $render_array;
   } // render()
