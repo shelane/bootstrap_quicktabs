@@ -44,7 +44,6 @@ class BootstrapQuickTabs extends QuickRenderer {
       '#default_value' => (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabeffects']) && $qt->options['tabeffects']) ? $qt->options['tabeffects'] : 'off',
       '#description' => t('Select fade effect on or off %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'http://getbootstrap.com/javascript/#tabs-examples'))),
       '#options' => array(
-      //  'off' => t('No Fade'),
         'fade' => t('Fade'),
       ),
       '#title' => t('Effect of tabs'),
