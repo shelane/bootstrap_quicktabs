@@ -1,4 +1,6 @@
-/* custom inclusion of justified tabs */
+/* included these styles if you are using the Bootstrap 2 theme */
+
+/*custom inclusion of justified tabs */
 
 .nav-tabs.nav-justified {
   width: 100%;
@@ -91,4 +93,18 @@
   .nav-tabs-justified > .active > a:focus {
     border-bottom-color: #ffffff;
   }
+}
+
+/* custom include pills-right */
+
+.tabs-right > .nav-pills {
+    float: right;
+    margin-left: 19px;
+}
+.tabs-left > .nav-pills {
+    float: left;
+    margin-right: 19px;
+}
+.tabs-left > .nav-pills > li, .tabs-right > .nav-pills > li {
+    float: none;
 }
