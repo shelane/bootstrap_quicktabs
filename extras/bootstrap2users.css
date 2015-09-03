@@ -1,6 +1,6 @@
 /* included these styles if you are using the Bootstrap 2 theme */
 
-/*custom inclusion of justified tabs */
+/* custom inclusion of justified tabs */
 
 .nav-tabs.nav-justified {
   width: 100%;
@@ -94,6 +94,7 @@
     border-bottom-color: #ffffff;
   }
 }
+
 
 /* custom include pills-right */
 

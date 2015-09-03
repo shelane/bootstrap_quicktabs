@@ -1,9 +1,30 @@
-/* custom inclusion of right, left and below tabs */
+/* included these styles if you are using the Bootstrap 3 theme */
+
+/* custom inclusion of right, left and below tabs, staacked tabs */
 
 .tabs-below > .nav-tabs,
 .tabs-right > .nav-tabs,
-.tabs-left > .nav-tabs {
+.tabs-left > .nav-tabs,
+.tabs-below > .nav-pills,
+.tabs-right > .nav-pills,
+.tabs-left > .nav-pills {
   border-bottom: 0;
+}
+
+.nav-tabs.nav-stacked > li > a {
+    border: 1px solid #ddd;
+}
+
+.nav-tabs.nav-stacked {
+    border-bottom: 0 none;
+}
+
+.nav-tabs.nav-stacked > li {
+    margin-bottom: -3px;
+}
+
+.nav-pills {
+    margin-bottom: 20px;
 }
 
 .tab-content > .tab-pane,
@@ -44,12 +65,16 @@
 }
 
 .tabs-left > .nav-tabs > li,
-.tabs-right > .nav-tabs > li {
+.tabs-right > .nav-tabs > li,
+.tabs-left > .nav-pills > li,
+.tabs-right > .nav-pills > li {
   float: none;
 }
 
 .tabs-left > .nav-tabs > li > a,
-.tabs-right > .nav-tabs > li > a {
+.tabs-right > .nav-tabs > li > a,
+.tabs-left > .nav-pills > li > a,
+.tabs-right > .nav-pills > li > a {
   min-width: 74px;
   margin-right: 0;
   margin-bottom: 3px;
@@ -59,6 +84,11 @@
   float: left;
   margin-right: 19px;
   border-right: 1px solid #ddd;
+}
+
+.tabs-left > .nav-pills {
+  float: left;
+  margin-right: 19px;
 }
 
 .tabs-left > .nav-tabs > li > a {
@@ -86,6 +116,11 @@
   border-left: 1px solid #ddd;
 }
 
+.tabs-right > .nav-pills {
+  float: right;
+  margin-left: 19px;
+}
+
 .tabs-right > .nav-tabs > li > a {
   margin-left: -1px;
   -webkit-border-radius: 0 4px 4px 0;
@@ -104,3 +139,5 @@
   border-color: #ddd #ddd #ddd transparent;
   *border-left-color: #ffffff;
 }
+
+.tabs-left > .tab-content, .tabs-right > .tab-content {overflow-x:hidden}
