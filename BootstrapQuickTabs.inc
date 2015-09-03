@@ -30,12 +30,12 @@ class BootstrapQuickTabs extends QuickRenderer {
       '#default_value' => (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabposition']) && $qt->options['tabposition']) ? $qt->options['tabposition'] : 'basic',
       '#description' => t('Choose the position of tab to use from %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'http://getbootstrap.com/components/#nav'))),
       '#options' => array(
-        'basic' => t('Tabs on the top'),
-        'left' => t('Tabs on the left'),
-        'right' => t('Tabs on the right'),
-        'below' => t('Tabs on the bottom'),
-        'justified' => t('Tabs justified on the top'),
-        'stacked' => t('Tabs stacked'),
+        'basic' => t('Tabs/pills on the top'),
+        'left' => t('Tabs/pills on the left'),
+        'right' => t('Tabs /pills on the right'),
+        'below' => t('Tabs/pills on the bottom'),
+        'justified' => t('Tabs/pills justified on the top'),
+        'stacked' => t('Tabs/pills stacked'),
       ),
       '#title' => t('Position of tabs'),
       '#type' => 'radios',
@@ -85,30 +85,29 @@ class BootstrapQuickTabs extends QuickRenderer {
         'panes' => array(),
       ),
     );
-
-  $count = 1;
-  foreach ($quickset->getContents() as $key => $tab) {
-    if (!empty($tab)) {
-      $attribs = array(
-        'id' => 'quicktabs-' . $qt_name . $count,
-      );
-      $attribs['class'][] = 'tab-pane';
-      if ($key == $active_tab) {
-        $attribs['class'][] = 'active';
-      }
-      if (in_array('fade', $options['tabeffects'])) {
-        $attribs['class'][] = 'fade';
+    $count = 1;
+    foreach ($quickset->getContents() as $key => $tab) {
+      if (!empty($tab)) {
+        $attribs = array(
+          'id' => 'quicktabs-' . $qt_name . $count,
+        );
+        $attribs['class'][] = 'tab-pane';
         if ($key == $active_tab) {
-          $attribs['class'][] = 'in';
+          $attribs['class'][] = 'active';
         }
+        if (isset($options['tabeffects']) && in_array('fade', $options['tabeffects'], TRUE)) {
+          $attribs['class'][] = 'fade';
+          if ($key == $active_tab) {
+            $attribs['class'][] = 'in';
+          }
+        }
+        $render_array['content']['panes'][] = array(
+          '#prefix' => '<div role="tabpanel" ' . drupal_attributes($attribs) . '>',
+          '#suffix' => '</div>',
+          'content' => $tab->render(),
+        );
+        $count++;
       }
-      $render_array['content']['panes'][] = array(
-        '#prefix' => '<div role="tabpanel" ' . drupal_attributes($attribs) . '>',
-        '#suffix' => '</div>',
-        'content' => $tab->render(),
-      );
-      $count++;
-    }
   }
 
     return $render_array;
