@@ -5,7 +5,7 @@ Quicktabs
 Description:
 -------------------------------------------------------------------------------
 
-This module provides a "renderer" for to the Quicktabs module that enables site-builders to add Bootstrap-style tabs or pills to a page. This module should work with the Bootstrap theme. Some functionality of the Bootstrap tabs were added with Bootstrap 3 and some were removed. The form will specify which position choices require which version.
+This module provides a "renderer" for to the Quicktabs module that enables site-builders to add Bootstrap-style tabs or pills to a page. This module should work with the Bootstrap theme. Some functionality of the Bootstrap tabs were added with Bootstrap 3 and some were removed. Additional css files are included to be added to your sub-theme css files. Add only the styles for the version you do NOT have.
 
 Installation and Use:
 -------------------------------------------------------------------------------
