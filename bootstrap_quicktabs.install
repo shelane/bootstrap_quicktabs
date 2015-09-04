@@ -15,6 +15,10 @@ function bootstrap_quicktabs_requirements($phase) {
   // Get the available themes:
   $themes = list_themes();
   // Figure and return the requirements:
+  $jq_title = get_t('jQuery version');
+  $jq_descript = get_t('Bootstrap Quicktabs relies on jQuery 1.7 or higher.');
+  $boot_title = get_t('Bootstrap Theme');
+  $boot_descript = get_t('Bootstrap Quicktabs is intended for use with the Bootstrap theme.');
   return array(
     // jQuery version:
     //
@@ -24,9 +28,9 @@ function bootstrap_quicktabs_requirements($phase) {
     //    -- the variable we're checking just can't exist without the module in
     //       any case
     'jquery version' => array(
-      'title' => t('jQuery version'),
+      'title' => $jq_title,
       'value' => $jquery_version,
-      'description' => t('Bootstrap Quicktabs relies on jQuery 1.7 or higher.'),
+      'description' => $jq_descript,
       'severity' => version_compare($jquery_version, '1.7', '>=') ? REQUIREMENT_OK : REQUIREMENT_ERROR,
     ),
     // Add a requirement for bootstrap theme:
@@ -35,9 +39,9 @@ function bootstrap_quicktabs_requirements($phase) {
     // is pretty weak since we can't tell if it's installed, but it's better
     // than nothing:
     'bootstrap theme' => array(
-      'title' => t('Bootstrap Theme'),
+      'title' => $boot_title,
       'value' => array_key_exists('bootstrap', $themes) ? t('Installed') : t('Not found'),
-      'description' => t('Bootstrap Quicktabs is intended for use with the Bootstrap theme.'),
+      'description' => $boot_descript,
       'severity' => array_key_exists('bootstrap', $themes) ? REQUIREMENT_OK : REQUIREMENT_WARNING,
     ),
   );
