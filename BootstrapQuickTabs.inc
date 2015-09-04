@@ -6,7 +6,6 @@
  *
  */
 
-
 /**
  * Renders the content using the Bootstrap Tabs widget.
  */
@@ -139,4 +138,5 @@ class BootstrapQuickTabs extends QuickRenderer {
     }
     return $tabs;
   } // build_tablinks()
+
 } // BootstrapQuickTabs
