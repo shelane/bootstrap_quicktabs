@@ -5,9 +5,6 @@
  * Provides Bootstrap's tab styles to the Quicktabs module. Adapted from the
  * re_quicktabs_foundation module.
  *
- * @author Colin Calnan
- * @author Christopher Torgalson
- * @author Shelane French
  * @see https://bitbucket.org/reyebrow/re_quicktabs_foundation
  */
 
@@ -28,7 +25,6 @@ function bootstrap_quicktabs_quicktabs_renderers() {
   return $info;
 } // bootstrap_quicktabs_quicktabs_renderers()
 
-
 /**
  * Implements hook_theme().
  */
@@ -42,7 +38,6 @@ function bootstrap_quicktabs_theme() {
     ),
   );
 } // bootstrap_quicktabs_theme()
-
 
 /**
  * Theme function to output tablinks for Foundation style tabs.
@@ -63,7 +58,6 @@ function theme_bootstrap_tabs_tabset($variables) {//theme_bootstrap_quicktabs_ta
   $classes .= ($variables['tabset']['#options']['position'] == 'justified' || $variables['tabset']['#options']['position'] == 'stacked' ? ' nav-' . $variables['tabset']['#options']['position'] : '');
   return '<ul class="nav nav-' . $classes . '">' . $tabs . '</ul>';
 } // theme_bootstrap_quicktabs_tabs_tabset()
-
 
 /**
  * Theme function to output content for Bootstrap style tabs.
