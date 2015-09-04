@@ -23,13 +23,13 @@ Style:
 Tabs (default)
 Pills
 
-Position of tabs:
-Tabs on the top (default)
-Tabs on the left
-Tabs on the right
-Tabs on the bottom
-Tabs justified on the top (Bootstrap 3 only)
+Position of tabs/pills:
+Tabs/pills on the top (default)
+Tabs/pills on the left
+Tabs/pills on the right
+Tabs/pills on the bottom
+Tabs/pills justified on the top
 Tabs stacked
 
-Effect of tabs
+Effect of tabs:
 Fade (default off)
