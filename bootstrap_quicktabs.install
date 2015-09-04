@@ -19,6 +19,8 @@ function bootstrap_quicktabs_requirements($phase) {
   $jq_descript = get_t('Bootstrap Quicktabs relies on jQuery 1.7 or higher.');
   $boot_title = get_t('Bootstrap Theme');
   $boot_descript = get_t('Bootstrap Quicktabs is intended for use with the Bootstrap theme.');
+  $boot_exists = get_t('Installed');
+  $boot_notexist = get_t('Not found');
   return array(
     // jQuery version:
     //
@@ -40,7 +42,7 @@ function bootstrap_quicktabs_requirements($phase) {
     // than nothing:
     'bootstrap theme' => array(
       'title' => $boot_title,
-      'value' => array_key_exists('bootstrap', $themes) ? t('Installed') : t('Not found'),
+      'value' => array_key_exists('bootstrap', $themes) ? $boot_exists : $boot_notexist,
       'description' => $boot_descript,
       'severity' => array_key_exists('bootstrap', $themes) ? REQUIREMENT_OK : REQUIREMENT_WARNING,
     ),
