@@ -99,13 +99,14 @@
 /* custom include pills-right */
 
 .tabs-right > .nav-pills {
-    float: right;
-    margin-left: 19px;
+  float: right;
+  margin-left: 19px;
 }
 .tabs-left > .nav-pills {
-    float: left;
-    margin-right: 19px;
+  float: left;
+  margin-right: 19px;
 }
-.tabs-left > .nav-pills > li, .tabs-right > .nav-pills > li {
-    float: none;
+.tabs-left > .nav-pills > li,
+.tabs-right > .nav-pills > li {
+  float: none;
 }
