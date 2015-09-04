@@ -108,7 +108,7 @@ class BootstrapQuickTabs extends QuickRenderer {
         );
         $count++;
       }
-  }
+    }
 
     return $render_array;
   } // render()
