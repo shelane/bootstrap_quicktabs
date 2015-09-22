@@ -45,19 +45,31 @@ function bootstrap_quicktabs_theme() {
  *
  * @ingroup themeable
  */
-function theme_bootstrap_tabs_tabset($variables) {
+function theme_bootstrap_tabs_tabset($settings) {
   // Empty set of tabs:
-  $tabs = '';
-  foreach (element_children($variables['tabset']['tablinks']) as $key) {
-    if (is_array($variables['tabset']['tablinks'])) {
-      $tabs .= '<li role="presentation"' . (($key == $variables['tabset']['#options']['active']) ? ' class="active"' : '') . '>';
-      $tabs .= drupal_render($variables['tabset']['tablinks'][$key]);
-      $tabs .= '</li>';
+  $variables = array(
+    'items' => array(),
+    'title' => '',
+    'type' => 'ul',
+    'attributes' => array(),
+  );
+  foreach (element_children($settings['tabset']['tablinks']) as $key) {
+    if (is_array($settings['tabset']['tablinks'])) {
+      $tab = array();
+      if($key == $settings['tabset']['#options']['active']){
+        $tab['class'] = array('active');
+      }
+      $tab['data'] = drupal_render($settings['tabset']['tablinks'][$key]);
+      $tab['role'] = 'presentation';
+      $variables['items'][] = $tab;
     }
   }
-  $classes = ($variables['tabset']['#options']['style']);
-  $classes .= ($variables['tabset']['#options']['position'] == 'justified' || $variables['tabset']['#options']['position'] == 'stacked' ? ' nav-' . $variables['tabset']['#options']['position'] : '');
-  return '<ul class="nav nav-' . $classes . '">' . $tabs . '</ul>';
+  $classes = array('nav', 'nav-' . $settings['tabset']['#options']['style']);
+  if($settings['tabset']['#options']['position'] == 'justified' || $settings['tabset']['#options']['position'] == 'stacked'){
+    $classes[] = ' nav-' . $settings['tabset']['#options']['position'];
+  }
+  $variables['attributes']['class'] = $classes;
+  return theme('item_list', $variables);
 } // theme_bootstrap_quicktabs_tabs_tabset()
 
 /**
