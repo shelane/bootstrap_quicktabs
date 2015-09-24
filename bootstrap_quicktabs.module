@@ -56,7 +56,7 @@ function theme_bootstrap_tabs_tabset($settings) {
   foreach (element_children($settings['tabset']['tablinks']) as $key) {
     if (is_array($settings['tabset']['tablinks'])) {
       $tab = array();
-      if($key == $settings['tabset']['#options']['active']){
+      if ($key == $settings['tabset']['#options']['active']) {
         $tab['class'] = array('active');
       }
       $tab['data'] = drupal_render($settings['tabset']['tablinks'][$key]);
@@ -65,7 +65,7 @@ function theme_bootstrap_tabs_tabset($settings) {
     }
   }
   $classes = array('nav', 'nav-' . $settings['tabset']['#options']['style']);
-  if($settings['tabset']['#options']['position'] == 'justified' || $settings['tabset']['#options']['position'] == 'stacked'){
+  if ($settings['tabset']['#options']['position'] == 'justified' || $settings['tabset']['#options']['position'] == 'stacked') {
     $classes[] = ' nav-' . $settings['tabset']['#options']['position'];
   }
   $variables['attributes']['class'] = $classes;
