@@ -60,7 +60,6 @@ class BootstrapQuickTabs extends QuickRenderer {
     $quickset = $this->quickset;
     $settings = $this->quickset->getSettings();
     $options = $settings['options'];
-    $options['tabtype'] = empty($options) ? 'basic' : $options['tabtype'];
     $active_tab = $quickset->getActiveTab();
     $tabs = $this->build_tablinks($active_tab);
     $qt_name = $quickset->getName();
