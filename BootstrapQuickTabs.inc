@@ -3,14 +3,13 @@
 /**
  * @file
  * Extends Quicktabs module's core functions.
- *
  */
-
 
 /**
  * Renders the content using the Bootstrap Tabs widget.
  */
 class BootstrapQuickTabs extends QuickRenderer {
+
   /**
    * Build admin form.
    */
@@ -51,7 +50,6 @@ class BootstrapQuickTabs extends QuickRenderer {
     );
     return $form;
   } // optionsForm()
-
 
   /**
    * Build render array.
@@ -113,7 +111,6 @@ class BootstrapQuickTabs extends QuickRenderer {
     return $render_array;
   } // render()
 
-
   /**
    * Build the actual tab links, with appropriate href, title and attributes.
    *
@@ -141,4 +138,4 @@ class BootstrapQuickTabs extends QuickRenderer {
   } // build_tablinks()
 
 }
-// BootstrapQuickTabs
+// BootstrapQuickTabs.
