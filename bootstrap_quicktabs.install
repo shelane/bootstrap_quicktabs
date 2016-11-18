@@ -35,16 +35,5 @@ function bootstrap_quicktabs_requirements($phase) {
       'description' => $jq_descript,
       'severity' => version_compare($jquery_version, '1.7', '>=') ? REQUIREMENT_OK : REQUIREMENT_ERROR,
     ),
-    // Add a requirement for bootstrap theme:
-    //
-    // We're checking for the PRESENCE of the bootstrap theme; in reality this
-    // is pretty weak since we can't tell if it's installed, but it's better
-    // than nothing:
-    'bootstrap theme' => array(
-      'title' => $boot_title,
-      'value' => array_key_exists('bootstrap', $themes) ? $boot_exists : $boot_notexist,
-      'description' => $boot_descript,
-      'severity' => array_key_exists('bootstrap', $themes) ? REQUIREMENT_OK : REQUIREMENT_WARNING,
-    ),
   );
 } // bootstrap_quicktabs_requirements()
