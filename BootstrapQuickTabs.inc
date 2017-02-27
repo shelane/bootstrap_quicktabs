@@ -125,6 +125,7 @@ class BootstrapQuickTabs extends QuickRenderer {
         $attributes = array(
           'href' => '#quicktabs-' . $qt_name . $count,
           'data-toggle' => 'tab',
+          'class' => drupal_html_class($tab->getTitle()),
         );
         $markup = '<a ' . drupal_attributes($attributes) . '>' . check_plain($this->quickset->translateString($tab->getTitle(), 'tab', $i)) . '</a>';
         $tablink = array(
