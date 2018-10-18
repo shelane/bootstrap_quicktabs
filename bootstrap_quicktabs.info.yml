@@ -1,0 +1,7 @@
+name: 'bootstrap_quicktabs'
+type: module
+description: 'Makes tabs from Bootstrap framework available to the Quicktabs module.'
+core: 8.x
+package: 'Bootstrap'
+dependencies:
+  - drupal:quicktabs
