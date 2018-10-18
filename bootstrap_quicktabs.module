@@ -22,3 +22,19 @@ function bootstrap_quicktabs_help($route_name, RouteMatchInterface $route_match)
     default:
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function bootstrap_quicktabs_theme() {
+  return [
+    'bootstrap_accordion' => [
+      'variables' => [
+        'classes' => NULL,
+        'id' => NULL,
+        'panels' => NULL,
+      ],
+      'template' => 'bootstrap-accordion',
+    ],
+  ];
+}
