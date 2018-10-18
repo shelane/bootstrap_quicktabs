@@ -17,7 +17,7 @@ class BootstrapQuickTabs extends QuickRenderer {
     $form = array();
     $form['tabstyle'] = array(
       '#default_value' => (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabstyle']) && $qt->options['tabstyle']) ? $qt->options['tabstyle'] : 'tabs',
-      '#description' => t('Choose the style of tab to use from %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'http://getbootstrap.com/components/#nav'))),
+      '#description' => t('Choose the style of tab to use from %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'https://getbootstrap.com/docs/3.3/components/#nav'))),
       '#options' => array(
         'tabs' => t('Tabs'),
         'pills' => t('Pills'),
@@ -27,7 +27,7 @@ class BootstrapQuickTabs extends QuickRenderer {
     );
     $form['tabposition'] = array(
       '#default_value' => (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabposition']) && $qt->options['tabposition']) ? $qt->options['tabposition'] : 'basic',
-      '#description' => t('Choose the position of tab to use from %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'http://getbootstrap.com/components/#nav'))),
+      '#description' => t('Choose the position of tab to use from %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'https://getbootstrap.com/docs/3.3/components/#nav'))),
       '#options' => array(
         'basic' => t('Tabs/pills on the top'),
         'left' => t('Tabs/pills on the left'),
@@ -39,9 +39,13 @@ class BootstrapQuickTabs extends QuickRenderer {
       '#title' => t('Position of tabs'),
       '#type' => 'radios',
     );
+    $default_effects = [];
+    if (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabeffects']) && $qt->options['tabeffects']) {
+      $default_effects[] = 'fade';
+    }
     $form['tabeffects'] = array(
-      '#default_value' => (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabeffects']) && $qt->options['tabeffects']) ? $qt->options['tabeffects'] : 'off',
-      '#description' => t('Select fade effect on or off %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'http://getbootstrap.com/javascript/#tabs-examples'))),
+      '#default_value' => $default_effects,
+      '#description' => t('Select fade effect on or off %bootstrap', array('%bootstrap' => l(t('Bootstrap'), 'https://getbootstrap.com/docs/3.3/javascript/#tabs'))),
       '#options' => array(
         'fade' => t('Fade'),
       ),
