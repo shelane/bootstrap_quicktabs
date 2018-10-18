@@ -28,6 +28,17 @@ function bootstrap_quicktabs_help($route_name, RouteMatchInterface $route_match)
  */
 function bootstrap_quicktabs_theme() {
   return [
+    'bootstrap_tabs' => [
+      'variables' => [
+        'content' => NULL,
+        'tabs' => NULL,
+        'options' => NULL,
+      ],
+      'template' => 'bootstrap-tabs',
+    ],
+    'bootstrap_tabs_tabs' => [
+      'template' => 'bootstrap-tabs-tabs',
+    ],
     'bootstrap_accordion' => [
       'variables' => [
         'classes' => NULL,
