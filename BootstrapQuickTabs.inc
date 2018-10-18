@@ -49,7 +49,7 @@ class BootstrapQuickTabs extends QuickRenderer {
       '#type' => 'checkboxes',
     );
     return $form;
-  } // optionsForm()
+  }
 
   /**
    * Build render array.
@@ -59,7 +59,7 @@ class BootstrapQuickTabs extends QuickRenderer {
     $settings = $this->quickset->getSettings();
     $options = $settings['options'];
     $active_tab = $quickset->getActiveTab();
-    $tabs = $this->build_tablinks($active_tab);
+    $tabs = $this->buildTabLinks($active_tab);
     $qt_name = $quickset->getName();
     $render_array = array(
       'content' => array(
@@ -109,14 +109,18 @@ class BootstrapQuickTabs extends QuickRenderer {
     }
 
     return $render_array;
-  } // render()
+  }
 
   /**
    * Build the actual tab links, with appropriate href, title and attributes.
    *
-   * @param $active_tab The index of the active tab.
+   * @param int $active_tab
+   *   The index of the active tab.
+   *
+   * @return array
+   *   Tab array.
    */
-  protected function build_tablinks($active_tab) {
+  protected function buildTabLinks($active_tab) {
     $tabs = array();
     $qt_name = $this->quickset->getName();
     $count = 1;
@@ -136,7 +140,6 @@ class BootstrapQuickTabs extends QuickRenderer {
       }
     }
     return $tabs;
-  } // build_tablinks()
+  }
 
 }
-// BootstrapQuickTabs.

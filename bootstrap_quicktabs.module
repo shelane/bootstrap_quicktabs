@@ -22,7 +22,7 @@ function bootstrap_quicktabs_quicktabs_renderers() {
     ),
   );
   return $info;
-} // bootstrap_quicktabs_quicktabs_renderers()
+}
 
 /**
  * Implements hook_theme().
@@ -36,7 +36,7 @@ function bootstrap_quicktabs_theme() {
       'render element' => 'tabset',
     ),
   );
-} // bootstrap_quicktabs_theme()
+}
 
 /**
  * Theme function to output tablinks for Foundation style tabs.
@@ -68,7 +68,7 @@ function theme_bootstrap_tabs_tabset($settings) {
   }
   $variables['attributes']['class'] = $classes;
   return theme('item_list', $variables);
-} // theme_bootstrap_quicktabs_tabs_tabset()
+}
 
 /**
  * Theme function to output content for Bootstrap style tabs.
@@ -96,4 +96,4 @@ function theme_bootstrap_tabs($variables) {
 
   // Build and return the output:
   return sprintf($output_pattern, drupal_attributes($element['#options']['attributes']), $tabs, $panes);
-} // theme_bootstrap_quicktabs_tabs()
+}
