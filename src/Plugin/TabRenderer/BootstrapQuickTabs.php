@@ -28,6 +28,17 @@ class BootstrapQuickTabs extends TabRendererBase {
     $options = $instance->getOptions()['bootstrap_tabs'];
     $renderer = $instance->getRenderer();
     $form = [];
+    $form['ajax'] = array(
+      '#type' => 'radios',
+      '#title' => t('Ajax'),
+      '#options' => array(
+        TRUE => t('Yes') . ': ' . t('Load only the first tab on page view'),
+        FALSE => t('No') . ': ' . t('Load all tabs on page view.'),
+      ),
+      '#default_value' => ($renderer == 'bootstrap_tabs' && $options['ajax'] !== NULL) ? $options['ajax'] : 0,
+      '#description' => t('Choose how the content of tabs should be loaded.<p>By choosing "Yes", only the first tab will be loaded when the page first viewed. Content for other tabs will be loaded only when the user clicks the other tab. This will provide faster initial page loading, but subsequent tab clicks will be slower. This can place less load on a server.</p><p>By choosing "No", all tabs will be loaded when the page is first viewed. This will provide slower initial page loading, and more server load, but subsequent tab clicks will be faster for the user. Use with care if you have heavy views.</p><p>Warning: if you enable Ajax, any block you add to this quicktabs block will be accessible to anonymous users, even if you place role restrictions on the quicktabs block. Do not enable Ajax if the quicktabs block includes any blocks with potentially sensitive information.</p>'),
+      '#weight' => -6,
+    );
 
     $url = Url::fromUri('https://getbootstrap.com/docs/3.3/components/#nav');
     $link = Link::fromTextAndUrl($this->t('Bootstrap'), $url)->toString();
@@ -107,7 +118,7 @@ class BootstrapQuickTabs extends TabRendererBase {
     $build['#theme_wrappers'] = [
       'container' => [
         '#attributes' => [
-          'class' => ($settings['tabposition'] != 'basic' && $settings['tabposition'] != 'stacked' && $settings['tabposition'] != 'justified' ? ' tabs-' . $settings['tabposition'] : ''),
+          'class' => 'bootstrap-quicktabs-wrapper' . ($settings['tabposition'] != 'basic' && $settings['tabposition'] != 'stacked' && $settings['tabposition'] != 'justified' ? ' tabs-' . $settings['tabposition'] : ''),
           'id' => 'quicktabs-container-' . $qt_id,
         ],
       ],
@@ -166,6 +177,14 @@ class BootstrapQuickTabs extends TabRendererBase {
       $titles[$block_id] = [
         'title' => new TranslatableMarkup($tab['title']),
         'classes' => implode(' ', $link_classes),
+        'url' => Url::fromRoute(
+          'quicktabs.ajax_content',
+          [
+            'js' => 'nojs',
+            'instance' => $qt_id,
+            'tab' => $index,
+          ]
+        )->toString(),
       ];
     }
 
@@ -174,6 +193,13 @@ class BootstrapQuickTabs extends TabRendererBase {
     $build['#attached'] = [
       'library' => [
         'bootstrap_quicktabs/bootstrap_tabs',
+      ],
+      'drupalSettings' => [
+        'bootstrap_quicktabs' => [
+          'qt_' . $qt_id => [
+            'tabs' => $tab_pages,
+          ],
+        ],
       ],
     ];
 
