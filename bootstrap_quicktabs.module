@@ -21,6 +21,13 @@ function bootstrap_quicktabs_quicktabs_renderers() {
       'class' => 'BootstrapQuickTabs',
     ),
   );
+  $info['bootstrap_accordion'] = array(
+    'path' => $path,
+    'handler' => array(
+      'file' => 'BootstrapAccordion.inc',
+      'class' => 'BootstrapAccordion',
+    ),
+  );
   return $info;
 }
 
@@ -34,6 +41,9 @@ function bootstrap_quicktabs_theme() {
     ),
     'bootstrap_tabs_tabset' => array(
       'render element' => 'tabset',
+    ),
+    'bootstrap_accordion' => array(
+      'render element' => 'element',
     ),
   );
 }
