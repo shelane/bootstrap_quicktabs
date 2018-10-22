@@ -39,7 +39,7 @@ class BootstrapQuickTabs extends QuickRenderer {
       '#title' => t('Position of tabs'),
       '#type' => 'radios',
     );
-    $default_effects = [];
+    $default_effects = array();
     if (isset($qt->renderer) && $qt->renderer == 'bootstrap_tabs' && isset($qt->options['tabeffects']) && $qt->options['tabeffects']) {
       $default_effects[] = 'fade';
     }
