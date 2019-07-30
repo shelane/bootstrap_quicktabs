@@ -87,7 +87,7 @@ class BootstrapQuickTabs extends TabRendererBase {
     $qt_id = $instance->id();
     $type = \Drupal::service('plugin.manager.tab_type');
     $settings = $instance->getOptions()['bootstrap_tabs'];
-    $is_ajax = $settings['ajax'];
+    $is_ajax = isset($settings['ajax']) && $settings['ajax'];
     $classes = ['nav', 'nav-' . $settings['tabstyle']];
     if ($settings['tabposition'] == 'justified' || $settings['tabposition'] == 'stacked') {
       $classes[] = ' nav-' . $settings['tabposition'];
@@ -100,7 +100,7 @@ class BootstrapQuickTabs extends TabRendererBase {
         'style' => $settings['tabstyle'],
         'position' => $settings['tabposition'],
         'effects' => $settings['tabeffects'],
-        'ajax' => $settings['ajax'],
+        'ajax' => $is_ajax,
       ],
       '#id' => $qt_id,
     ];
